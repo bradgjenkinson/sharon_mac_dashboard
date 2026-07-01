@@ -7,23 +7,14 @@ so the API is not called on every page interaction.
 
 from __future__ import annotations
 
-import sys
-from pathlib import Path
 from datetime import datetime
 
 import numpy as np
 import pandas as pd
 import streamlit as st
 
-# ── resolve project root so imports work regardless of working directory ──────
-# __file__ is  .../sharon_dashboard/dashboard/data.py
-# PROJECT_ROOT is .../sharon_dashboard/
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
 from xero_client import XeroAuth, XeroClient
-from dashboard.config import (
+from config import (
     HAPPY_TARGETS,
     STRETCH_TARGETS,
     INVOICE_START_DATE,

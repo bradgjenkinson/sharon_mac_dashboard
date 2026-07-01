@@ -15,9 +15,9 @@ import streamlit as st
 
 pyodide_http.patch_all()    ## <--- comment out this line if you want to run the app locally
 
-from dashboard.data import load_invoices, build_monthly_financial
-from dashboard.charts import bar_chart_monthly, line_chart_cumulative
-from dashboard.config import DASHBOARD_YEAR
+from data import load_invoices, build_monthly_financial
+from charts import bar_chart_monthly, line_chart_cumulative
+from config import DASHBOARD_YEAR
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Page configuration  (must be first Streamlit call)

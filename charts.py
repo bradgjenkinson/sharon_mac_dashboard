@@ -14,7 +14,7 @@ from matplotlib.lines import Line2D
 import seaborn as sns
 import pandas as pd
 
-from dashboard.config import COL_ACTUAL, COL_HAPPY, COL_STRETCH
+from config import COL_ACTUAL, COL_HAPPY, COL_STRETCH
 
 
 def _apply_theme() -> None:

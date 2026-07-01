@@ -17,16 +17,13 @@
   "stlite": {
     "desktop": {
       "entrypoint": "app.py",
-      "files": {
-        "app.py": "app.py",
-        "dashboard/__init__.py": "./dashboard/__init__.py",
-        "dashboard/charts.py": "charts.py",
-        "dashboard/config.py": "config.py",
-        "dashboard/data.py": "data.py",
-        "xero_client/__init__.py": "xero_client/__init__.py",
-        "xero_client/auth.py": "xero_client/auth.py",
-        "xero_client/client.py": "xero_client/client.py"
-      },
+      "files": [
+        "app.py",
+        "charts.py",
+        "config.py",
+        "data.py",
+        "xero_client"
+      ],
       "requirementsTxtFiles": ["requirements.txt"]
     }
   }
