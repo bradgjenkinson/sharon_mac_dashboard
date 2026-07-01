@@ -1,0 +1,39 @@
+name: Build macOS Desktop App
+
+on:
+  push:
+    branches:
+      - main  # Triggers the build every time you push to the main branch
+  workflow_dispatch: # Allows you to manually trigger the build from the GitHub UI
+
+jobs:
+  release:
+    runs-on: macos-latest # Fires up a virtual Mac in the cloud
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-size: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Prepare stlite Artifacts
+        run: npm run dump
+
+      - name: Build Electron App for Mac
+        run: npm run app:dist -- --mac
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Mac App Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macOS-Desktop-App
+          path: dist/*.dmg  # Changes to dist/*.zip or dist/*.app depending on your electron-builder config
+          retention-days: 7

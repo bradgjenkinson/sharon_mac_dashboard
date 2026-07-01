@@ -1,0 +1,24 @@
+{
+  "name": "sharon_dashboard",
+  "version": "1.0.0",
+  "main": "./build/electron/main.js",
+  "scripts": {
+    "dump": "dump-stlite-desktop-artifacts",
+    "serve": "cross-env NODE_ENV=production electron .",
+    "app:dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "devDependencies": {
+    "@stlite/desktop": "^0.79.5",
+    "cross-env": "^7.0.3",
+    "electron": "34.3.0",
+    "electron-builder": "^24.13.3"
+  },
+  "stlite": {
+    "desktop": {
+      "entrypoint": "app.py",
+      "files": ["app.py"],
+      "requirementsTxtFiles": ["requirements.txt"]
+    }
+  }
+}
