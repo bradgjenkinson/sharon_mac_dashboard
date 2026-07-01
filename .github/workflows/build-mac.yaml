@@ -17,11 +17,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24  # Fixed the node-size error
+          node-version: 24
           cache: 'npm'
 
       - name: Install Dependencies
         run: npm install
+
+      - name: Fix Node Binaries Permissions
+        run: chmod -R +x node_modules/.bin
 
       - name: Prepare stlite Artifacts
         run: npm run dump
