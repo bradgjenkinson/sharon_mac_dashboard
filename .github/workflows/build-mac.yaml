@@ -23,8 +23,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Force Executable Permissions on All Workspace Files
-        run: chmod -R +x .
+      - name: Fix Executable Permissions on node_modules/.bin
+        run: chmod -R +x node_modules/.bin
 
       - name: Prepare stlite Artifacts
         run: npx dump-stlite-desktop-artifacts
