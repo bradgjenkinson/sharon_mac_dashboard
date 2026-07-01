@@ -7,8 +7,6 @@ Run with:
 
 from __future__ import annotations
 
-import sys
-from pathlib import Path
 from datetime import datetime
 import matplotlib.pyplot as plt
 import pyodide_http
@@ -16,11 +14,6 @@ import requests
 import streamlit as st
 
 pyodide_http.patch_all()    ## <--- comment out this line if you want to run the app locally
-
-# ── make sure project root is on sys.path when run as `streamlit run dashboard/app.py`
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
 
 from dashboard.data import load_invoices, build_monthly_financial
 from dashboard.charts import bar_chart_monthly, line_chart_cumulative
