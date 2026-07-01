@@ -3,12 +3,12 @@ name: Build macOS Desktop App
 on:
   push:
     branches:
-      - main  # Triggers the build every time you push to the main branch
-  workflow_dispatch: # Allows you to manually trigger the build from the GitHub UI
+      - main
+  workflow_dispatch:
 
 jobs:
   release:
-    runs-on: macos-latest # Fires up a virtual Mac in the cloud
+    runs-on: macos-latest
 
     steps:
       - name: Checkout repository
@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-size: 20
+          node-version: 24  # Fixed the node-size error
           cache: 'npm'
 
       - name: Install Dependencies
@@ -35,5 +35,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: macOS-Desktop-App
-          path: dist/*.dmg  # Changes to dist/*.zip or dist/*.app depending on your electron-builder config
+          path: dist/*.dmg
           retention-days: 7
